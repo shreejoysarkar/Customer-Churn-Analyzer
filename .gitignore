@@ -137,12 +137,12 @@ celerybeat.pid
 # Environments
 .env
 .envrc
-.churnalyse
+.churn
 env/
-churnalyse/
+churn/
 ENV/
 env.bak/
-churnalyse.bak/
+churn.bak/
 
 # Spyder project settings
 .spyderproject
