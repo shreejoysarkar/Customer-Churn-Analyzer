@@ -7,9 +7,7 @@ import pandas as pd
 
 
 from sklearn.preprocessing import  StandardScaler
-from imblearn.over_sampling import SMOTE
 from sklearn.impute import SimpleImputer
-from sklearn.model_selection import train_test_split, cross_val_score
 from src.exception import CustomException
 from src.logger import logging
 from sklearn.pipeline import Pipeline
@@ -98,19 +96,16 @@ class DataTransformation:
 
             logging.info("Applying preprocessing object on training and testing dataframes")
 
+
+            input_features_train = preprocessor_obj.fit_transform(input_features_train)
+            input_features_test = preprocessor_obj.transform(input_features_test)
+                 
             save_object(
                 file_path=self.DataTransformationConfig.preprocessor_obj_file_path,
                 obj=preprocessor_obj
             )
 
-            input_features_train = preprocessor_obj.fit_transform(input_features_train)
-            input_features_test = preprocessor_obj.transform(input_features_test)
-           
-            logging.info("Applying SMOTE for handling imbalanced data")
-            smote = SMOTE(random_state=42)
-            input_features_train, target_feature_train = smote.fit_resample(input_features_train, target_feature_train) 
-            logging.info("SMOTE applied successfully")
-
+            
             train_arr = np.c_[input_features_train, target_feature_train.values]
             test_arr = np.c_[input_features_test, target_feature_test.values]
             logging.info("Data transformation completed successfully")

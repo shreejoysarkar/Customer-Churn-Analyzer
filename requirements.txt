@@ -9,4 +9,5 @@ scikit-learn
 xgboost
 mlflow
 imbalanced-learn
+dill
 #-e .
