@@ -9,7 +9,7 @@ The dataset is used for **EDA** and **model training** to predict customer churn
 
 
 ### Screenshot of UI:
-![Customer Churn Analyzer UI](static\images\project_ui.png)
+![Customer Churn Analyzer UI](static/images/project_ui.png)
 
 
 
