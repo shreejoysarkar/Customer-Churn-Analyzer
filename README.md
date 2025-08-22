@@ -7,6 +7,7 @@ The project uses the **Telco Customer Churn Dataset** with 7,043 records and 33 
 It includes customer details (e.g. contract type, charges) and churn-related columns like `Churn Value`, and `Churn Reason`.  
 The dataset is used for **EDA** and **model training** to predict customer churn and understand key factors influencing it.  
 
+### Deployed version of the application: https://customer-churn-analyzer-z4ii.onrender.com
 
 ### Screenshot of UI:
 ![Customer Churn Analyzer UI](static/images/project_ui.png)
