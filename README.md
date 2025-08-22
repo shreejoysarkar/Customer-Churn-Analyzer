@@ -26,7 +26,8 @@ This project is a customer churn analyzer that uses machine learning to predict 
 
 The project is organized into the following directories and files for clarity and maintainability:
 
-.
+```
+Customer-Churn-Analyer/
 ├── artifacts/
 │   ├── model.pkl            # Final trained model
 │   ├── preprocessor.pkl     # Data preprocessor (e.g., scaler, encoder)
@@ -67,4 +68,4 @@ The project is organized into the following directories and files for clarity an
 ├── README.md                      # This file
 ├── requirements.txt               # List of project dependencies
 └── setup.py                       # Python setup script
-
+```
