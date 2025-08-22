@@ -2,152 +2,240 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customer Churn Input Form</title>
-    
+    <title>Customer Churn Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='images/background.jpeg') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            margin: 40px auto;
+            width: 50%;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            text-align: left;
+            color: black;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: yellow;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h2>Enter Customer Details</h2>
-    <form action="/predict" method="post">
-        
-        <!-- Gender -->
-        <label for="gender">Gender:</label>
-        <select name="gender" required>
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
-        </select><br><br>
+    <h2>Customer Churn Prediction</h2>
+    <p>
+    <a href="https://github.com/shreejoysarkar/Customer-Churn-Analyzer" target="_blank" style="color: #fff; text-decoration: underline;">
+        View on GitHub
+    </a>
+</p>
 
-        <!-- Senior Citizen -->
-        <label for="SeniorCitizen">Senior Citizen:</label>
-        <select name="SeniorCitizen" required>
-            <option value="0">0</option>
-            <option value="1">1</option>
-        </select><br><br>
+    <div class="form-container">
+        <form action="/predict" method="post">
+            
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+            <select name="gender" required>
+                <option value="" disabled selected hidden>Select Gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
 
-        <!-- Partner -->
-        <label for="Partner">Partner:</label>
-        <select name="Partner" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br><br>
+            <!-- Senior Citizen -->
+            <label for="SeniorCitizen">Senior Citizen:</label>
+            <select name="SeniorCitizen" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="0"> NO</option>
+                <option value="1"> YES</option>
+            </select>
 
-        <!-- Dependents -->
-        <label for="Dependents">Dependents:</label>
-        <select name="Dependents" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br><br>
+            <!-- Partner -->
+            <label for="Partner">Partner:</label>
+            <select name="Partner" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
 
-        <!-- Tenure -->
-        <label for="tenure">Tenure (Months):</label>
-        <input type="number" name="tenure" min="0" max="72" required><br><br>
+            <!-- Dependents -->
+            <label for="Dependents">Dependents:</label>
+            <select name="Dependents" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
 
-        <!-- Phone Service -->
-        <label for="PhoneService">Phone Service:</label>
-        <select name="PhoneService" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br><br>
+            <!-- Tenure -->
+            <label for="tenure">Tenure (Months):</label>
+            <input type="number" name="tenure" min="0" max="72" required,placeholder="Enter tenure in months" >
 
-        <!-- Multiple Lines -->
-        <label for="MultipleLines">Multiple Lines:</label>
-        <select name="MultipleLines" required>
-            <option value="No phone service">No phone service</option>
-            <option value="No">No</option>
-            <option value="Yes">Yes</option>
-        </select><br><br>
+            <!-- Phone Service -->
+            <label for="PhoneService">Phone Service:</label>
+            <select name="PhoneService" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
 
-        <!-- Internet Service -->
-        <label for="InternetService">Internet Service:</label>
-        <select name="InternetService" required>
-            <option value="DSL">DSL</option>
-            <option value="Fiber optic">Fiber optic</option>
-            <option value="No">No</option>
-        </select><br><br>
+            <!-- Multiple Lines -->
+            <label for="MultipleLines">Multiple Lines:</label>
+            <select name="MultipleLines" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="No phone service">No phone service</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
 
-        <!-- Online Security -->
-        <label for="OnlineSecurity">Online Security:</label>
-        <select name="OnlineSecurity" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="No internet service">No internet service</option>
-        </select><br><br>
+            <!-- Internet Service -->
+            <label for="InternetService">Internet Service:</label>
+            <select name="InternetService" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="DSL">DSL</option>
+                <option value="Fiber optic">Fiber optic</option>
+                <option value="No">No</option>
+            </select>
 
-        <!-- Online Backup -->
-        <label for="OnlineBackup">Online Backup:</label>
-        <select name="OnlineBackup" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="No internet service">No internet service</option>
-        </select><br><br>
+            <!-- Online Security -->
+            <label for="OnlineSecurity">Online Security:</label>
+            <select name="OnlineSecurity" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No internet service">No internet service</option>
+            </select>
 
-        <!-- Device Protection -->
-        <label for="DeviceProtection">Device Protection:</label>
-        <select name="DeviceProtection" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="No internet service">No internet service</option>
-        </select><br><br>
+            <!-- Online Backup -->
+            <label for="OnlineBackup">Online Backup:</label>
+            <select name="OnlineBackup" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No internet service">No internet service</option>
+            </select>
 
-        <!-- Tech Support -->
-        <label for="TechSupport">Tech Support:</label>
-        <select name="TechSupport" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="No internet service">No internet service</option>
-        </select><br><br>
+            <!-- Device Protection -->
+            <label for="DeviceProtection">Device Protection:</label>
+            <select name="DeviceProtection" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No internet service">No internet service</option>
+            </select>
 
-        <!-- Streaming TV -->
-        <label for="StreamingTV">Streaming TV:</label>
-        <select name="StreamingTV" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="No internet service">No internet service</option>
-        </select><br><br>
+            <!-- Tech Support -->
+            <label for="TechSupport">Tech Support:</label>
+            <select name="TechSupport" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No internet service">No internet service</option>
+            </select>
 
-        <!-- Streaming Movies -->
-        <label for="StreamingMovies">Streaming Movies:</label>
-        <select name="StreamingMovies" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="No internet service">No internet service</option>
-        </select><br><br>
+            <!-- Streaming TV -->
+            <label for="StreamingTV">Streaming TV:</label>
+            <select name="StreamingTV" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No internet service">No internet service</option>
+            </select>
 
-        <!-- Contract -->
-        <label for="Contract">Contract:</label>
-        <select name="Contract" required>
-            <option value="Month-to-month">Month-to-month</option>
-            <option value="One year">One year</option>
-            <option value="Two year">Two year</option>
-        </select><br><br>
+            <!-- Streaming Movies -->
+            <label for="StreamingMovies">Streaming Movies:</label>
+            <select name="StreamingMovies" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="No internet service">No internet service</option>
+            </select>
 
-        <!-- Paperless Billing -->
-        <label for="PaperlessBilling">Paperless Billing:</label>
-        <select name="PaperlessBilling" required>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br><br>
+            <!-- Contract -->
+            <label for="Contract">Contract:</label>
+            <select name="Contract" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Month-to-month">Month-to-month</option>
+                <option value="One year">One year</option>
+                <option value="Two year">Two year</option>
+            </select>
 
-        <!-- Payment Method -->
-        <label for="PaymentMethod">Payment Method:</label>
-        <select name="PaymentMethod" required>
-            <option value="Electronic check">Electronic check</option>
-            <option value="Mailed check">Mailed check</option>
-            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
-            <option value="Credit card (automatic)">Credit card (automatic)</option>
-        </select><br><br>
+            <!-- Paperless Billing -->
+            <label for="PaperlessBilling">Paperless Billing:</label>
+            <select name="PaperlessBilling" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
 
-        <!-- Monthly Charges -->
-        <label for="MonthlyCharges">Monthly Charges:</label>
-        <input type="number" step="0.01" name="MonthlyCharges" min="18.25" max="118.75" required><br><br>
+            <!-- Payment Method -->
+            <label for="PaymentMethod">Payment Method:</label>
+            <select name="PaymentMethod" required>
+                <option value="" disabled selected hidden>Select Option</option>
+                <option value="Electronic check">Electronic check</option>
+                <option value="Mailed check">Mailed check</option>
+                <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                <option value="Credit card (automatic)">Credit card (automatic)</option>
+            </select>
 
-        <!-- Total Charges -->
-        <label for="TotalCharges">Total Charges:</label>
-        <input type="number" step="0.01" name="TotalCharges" min="18.8" max="8684.8" required><br><br>
+            <!-- Monthly Charges -->
+            <label for="MonthlyCharges">Monthly Charges:</label>
+            <input type="number" step="0.01" name="MonthlyCharges" min="18.25" max="118.75" required placeholder="Enter monthly charges">
 
-        <input type="submit" value="Predict">
-    </form>
-    <h2>
-        THE PREDICTION IS {{results}}
-    </h2>
+            <!-- Total Charges -->
+            <label for="TotalCharges">Total Charges:</label>
+            <input type="number" step="0.01" name="TotalCharges" min="18.8" max="8684.8" required  placeholder="Enter total charges">
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+
+    <div class="result">
+        {% if results is not none and results != "" %}
+        THE CHURN PREDICTION IS (0:NO, 1:YES) : <h1> {{results}}</h1>
+        {% endif %}
+    </div>
 </body>
 </html>
