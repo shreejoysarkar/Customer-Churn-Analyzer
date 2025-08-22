@@ -12,12 +12,6 @@ The dataset is used for **EDA** and **model training** to predict customer churn
 ![Customer Churn Analyzer UI](static/images/project_ui.png)
 
 
-Here is the content for your README.md file, formatted to clearly present your project's file structure.
-
-Markdown
-
-# Customer Churn Analyzer
-
 ## Project Overview
 
 This project is a customer churn analyzer that uses machine learning to predict customer churn. The repository contains the source code, data, trained models, and a web-based user interface to interact with the model.
@@ -39,7 +33,7 @@ Customer-Churn-Analyer/
 │   ├── data/
 │   │   └── Telco_customer_churn.csv # Raw data file
 │   ├── ordinal_encoder.pkl      # Ordinal encoder for categorical features
-│   ├── trails(EDA).ipynb        # Jupyter notebook for Exploratory Data Analysis
+│   ├── trails(EDA).ipynb        # Jupyter notebook for Exploratory Data Analysis with Visualizations
 │   └── trails(MODEL_TRAINING).ipynb # Jupyter notebook for model training
 |
 ├── src/
