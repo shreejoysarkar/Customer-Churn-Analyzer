@@ -3,15 +3,12 @@ import sys
 from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
-from dotenv import load_dotenv
 from sklearn.model_selection import GridSearchCV
-import pymysql
 import dill
 
 from sklearn.metrics import r2_score 
 
 import pickle
-import numpy as np
 
 
 def save_object(file_path, obj):
