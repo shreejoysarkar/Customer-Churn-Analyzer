@@ -23,8 +23,6 @@ The project is organized into the following directories and files for clarity an
 
 ```
 Customer-Churn-Analyer/
-├── .ebxtensions/
-│   ├── python.config        # deployment configuration 
 ├── artifacts/
 │   ├── model.pkl            # Final trained model
 │   ├── preprocessor.pkl     # Data preprocessor (e.g., scaler, encoder)
@@ -61,7 +59,6 @@ Customer-Churn-Analyer/
 |
 ├── .gitignore                     # Specifies intentionally untracked files to ignore
 ├── app.py                         # Main Flask application file for the web UI
-├── application.py                 # same as app.py, just for deployments purpose
 ├── LICENSE                        # Project license
 ├── README.md                      # This file
 ├── requirements.txt               # List of project dependencies
