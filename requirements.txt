@@ -2,10 +2,14 @@ numpy
 pandas
 seaborn
 matplotlib
+pymysql
+mysql-connector-python
+python-dotenv
 scikit-learn
+gunicorn ==23.0.0
 flask
 xgboost
 mlflow
-gunicorn == 23.0.0
+imbalanced-learn
 dill
 #-e .
