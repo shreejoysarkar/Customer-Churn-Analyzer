@@ -2,8 +2,10 @@ numpy
 pandas
 seaborn
 matplotlib
-gunicorn == 23.0.0
 scikit-learn
+flask
 xgboost
+mlflow
+gunicorn == 23.0.0
 dill
 #-e .
