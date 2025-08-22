@@ -22,6 +22,8 @@ The project is organized into the following directories and files for clarity an
 
 ```
 Customer-Churn-Analyer/
+├── .ebxtensions/
+│   ├── python.config        # deployment configuration 
 ├── artifacts/
 │   ├── model.pkl            # Final trained model
 │   ├── preprocessor.pkl     # Data preprocessor (e.g., scaler, encoder)
