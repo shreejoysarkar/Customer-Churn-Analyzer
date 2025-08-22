@@ -58,6 +58,7 @@ Customer-Churn-Analyer/
 |
 ├── .gitignore                     # Specifies intentionally untracked files to ignore
 ├── app.py                         # Main Flask application file for the web UI
+├── application.py                 # same as app.py, just for deployments purpose
 ├── LICENSE                        # Project license
 ├── README.md                      # This file
 ├── requirements.txt               # List of project dependencies
